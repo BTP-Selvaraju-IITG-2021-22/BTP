@@ -1,0 +1,97 @@
+\chapter{Introduction}
+
+In this paper, our main goal is to analyze the application of game theory to networks of queues in order to optimize a payoff function associated with the queueing game. We explore non-cooperative queueing games in Chapter 2 by presenting a model and stating theorems that prove/disprove the existence of Nash Equilibrium for certain sub-classes of queueing games.
+In Chapter 3, we have introduced an algorithmic approach to check the existence of pure strategy (mixed also?) Nash Equilibria for non-cooperative N-player games on a generalized network of queues, with a predefined strategy space for each player. We have also explored and analyzed the Best-response algorithm which shows that, for a game with a continuous strategy space, a pure-strategy Nash Equilibrium always exists.
+In Chapter 4, we conclude the paper with a brief overview of our findings; and provide an array of avenues which would look to explore and work on, in the future.
+
+
+
+\section{Queueing Theory}
+
+Some text here ...
+
+\begin{definition}\label{abc1}
+$M/M/1$ Queue
+	An M/M/1 queue is a single-server queue, and according to the Kendall's notation, has arrival rate($\lambda$) following the Markovian($M$) distribution, which means the inter-arrival times of customers entering the queue are exponential. The service rate($\mu$) of the queue	is also Markovian($M$) and hence is an exponential service time. The maximum number of customers in the queue at the same time is unbounded or infinite.
+\end{definition}
+\vspace{2mm}
+\begin{theorem}
+The expected waiting time for an M/M/1 queue with arrival rate $\lambda$ and service rate $\mu$ is equal to $\frac{1}{\mu - \lambda}$.
+\end{theorem}
+
+\begin{proof}
+Let n be the number of customers at a given time, in the queue. We can make the flow-balance equations for n $\ge$ 1 and for the state with no customers as follows:
+\begin{center}
+$(\lambda + \mu)p_n = \mu p_{n+1} + \lambda p_{n-1}$ \\
+$\lambda p_0 = \mu p_1$ \\
+\end{center}
+where $p_i$ is the long-term fraction of time with $i$ customers in the system. The following figure shows a state diagram for the number of customers in the system at a time along with the rates of transition to the next or previous state.
+<insert figure of rate transition diagram here>
+
+\begin{center}
+$L = \frac{\rho}{1-\rho} = \frac{\lambda}{\mu - \lambda}$
+\end{center}
+Using Little's Law ($L = \lambda W$), we get,
+\begin{center}
+	 $W = \frac{L}{\lambda} = \frac{1}{\mu - \lambda}$
+\end{center}
+\end{proof}
+\vspace{20mm}
+
+\begin{corollary}
+A corollary to the theorem is....
+\end{corollary}
+
+\begin{remark}
+Some remark.......
+\end{remark}
+
+
+You may have to type many equations inside the text.  The equation can be typed as below.
+\begin{equation}\label{eqn1}
+f(x) = \frac{x^2-5x+2}{e^x - 2} = {y^5-3 \over e^x-2} %\nonumber
+\end{equation}
+
+This can be referred as (\ref{eqn1}) and so on.....
+
+You may have to type a set of equations.  For this you may proceed as given below.
+\begin{eqnarray}
+f(x) &=& e^{1+2(x-a)} + \ldots   \nonumber   \\
+  &=& \log(x+a) + \sin(x+y) + \cdots  \label{eqn2}
+\end{eqnarray}
+
+% Note: \nonumber will suppress the eqn number in the above.
+% You can type comments like this starting with % as here.
+
+You may have to cite the articles.  You may do so as \cite{laan} and so on.....
+Note that you have already created the `bib.bib' file and included the entry with the above name. Only
+then you can cite it as above.
+
+\section{Game Theory}
+\begin{definition}\label{abc2}
+Some definition....
+\end{definition}
+
+\begin{remark}
+Some remark.......
+\end{remark}
+
+\subsection{Subsection name}
+
+\begin{theorem}
+Some theorem.......
+\end{theorem}
+
+\begin{proof}
+Proof is as follows.... By Definition \ref{abc1}
+\end{proof}
+
+
+\begin{figure}[h]
+
+[The figure will be displayed here.]
+
+\caption{The correlation coefficient as a function of $\rho$}
+\end{figure}
+
+

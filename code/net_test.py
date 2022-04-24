@@ -1,32 +1,31 @@
 from non_cooperative import Route, Player, Network
 
-r1 = Route([0.3, 0, 0], [
-    [0, 1.0, 0],
-    [0, 0.4, 0.6],
-    [0, 0, 0]
-])
-r2 = Route([0.3, 0, 0], [
-    [0, 0.3, 0.6],
-    [0, 0.4, 0.6],
-    [0.1, 0, 0]
+r11 = Route([0, 4], [
+    [0, 0],
+    [0, 0],
 ])
 
-r3 = Route([0.1, 0.1, 0.1], [
-    [0, 0.3, 0.6],
-    [0, 0.4, 0.6],
-    [0.1, 0, 0]
+r12 = Route([4, 0], [
+    [0, 0],
+    [0, 0],
 ])
 
-r4 = Route([0.1, 0.1, 0.1], [
-    [0.3, 0.6, 0],
-    [0, 0, 1.0],
-    [0.0, 0, 0]
+r21 = Route([0, 3], [
+    [0, 0],
+    [0, 0],
+])
+
+r22 = Route([3, 0], [
+    [0, 0],
+    [0, 0],
 ])
 
 
-p0 = Player([r1, r2], 0)
-p1 = Player([r3, r4], 1)
+p0 = Player([r11, r12], 0)
+p1 = Player([r21, r22], 1)
 
-network = Network([2.0, 2.0, 2.0], [p0, p1])
+network = Network([20., 20.0], [p0, p1])
 print(network.waitTime(0))
-print(network.calcPureNashEquilibrium())
+# print(network.calcPureNashEquilibrium())
+network.correlatedEquilbrium()
+# print(network.calcDiscreteCosts())

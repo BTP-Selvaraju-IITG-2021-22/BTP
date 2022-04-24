@@ -1,9 +1,10 @@
 #!/bin/python3
 
-import pulp
 from typing import List
 import numpy as np
 import scipy.optimize
+import itertools
+import pulp
 
 class Route:
     def __init__(self,gamma, R) -> None:
@@ -68,9 +69,7 @@ class Network:
                         route_r = self.players[k].routingChoices[r]
                         C[k][r][i] += route_r.gamma[j] * route_r.Q[j,i]
         return C
-    
-    
-    
+       
     def waitTime(self, playerId : int, strategy=None):
         strategies = self.state
         if strategy is not None:
@@ -113,11 +112,11 @@ class Network:
             for k in range(len(self.players)):
                 for r in range(self.players[k].nChoices):
                     arrv += strategies[k][r]*self.C[k][r][i]
-            if not (arrv <= self.serviceRates[i]): return False
+            print(f"arrv[{i}] =  {arrv} (service = {self.serviceRates[i]}")
+            if not (arrv < self.serviceRates[i]): return False
         
         return True
         
-
     def bestResponse(self, playerId : int):
         # set state to the best response of player `playerId`
         # Changes will only be made of state[playerId]
@@ -149,12 +148,9 @@ class Network:
         linearConstraints.append(scipy.optimize.LinearConstraint(A_eq, lb_eq, ub_eq))
         
         # 1 >= each probabilities >= 0
-        for j in range(curPlayer.nChoices):
-            A_ineq[self.numNodes + 1 + j, j] = 1.0
-            ub[self.numNodes + 1 + j] = 1
-            lb[self.numNodes + 1 + j] = 0
+        bounds = scipy.optimize.Bounds(np.zeros(curPlayer.nChoices,), 
+                                       1 + np.zeros(curPlayer.nChoices,))
         
-        linearConstraints = scipy.optimize.LinearConstraint(A_ineq, lb, ub, keep_feasible=keep_feasible)
         costFn = lambda p : self.waitTime(playerId, strategy=p)
         
         p0 = None
@@ -163,12 +159,11 @@ class Network:
             p0 = np.random.uniform(size=(curPlayer.nChoices,)) # initial guess for `curPlayer`
             p0 = p0/np.sum(p0)
             Ap0 = A_ineq.dot(p0)
-            satisfies = np.all(lb <= Ap0) and np.all(Ap0 <= ub)
+            satisfies = np.all(lb_ineq <= Ap0) and np.all(Ap0 <= ub_ineq)
             # print("checking p0 = ", p0, "... satisfies?" , satisfies)
         
-        optRes = scipy.optimize.minimize(costFn, p0, constraints=linearConstraints)
+        optRes = scipy.optimize.minimize(costFn, p0, constraints=linearConstraints, bounds=bounds)
         return optRes.x
-    
     
     def calcPureNashEquilibrium(self):
         
@@ -178,11 +173,10 @@ class Network:
             for i in range(len(self.state)):
                 self.state[i] = self.state[i]/np.sum(self.state[i])
         
-        
-        nIter = 5
-        eps = 0.0001
-        for iter in range(nIter):
-            print(f"Nash Iteration {iter}")
+        maxIter = 50
+        eps = 0.001
+        for iter in range(maxIter):
+            print(f"\nNash Iteration {iter}")
             anyNew = False
             print("current Strats : ", self.state)
             for j in range(len(self.players)):
@@ -193,6 +187,87 @@ class Network:
                     anyNew = True
             if not anyNew:
                 print(f"Nothing new...")
+                break
+            else:
+                print("something new")
         
         return self.state
+    
+    def calcDiscreteCosts(self, includeNonFeasible=False):
+        strategySpace = itertools.product(*[list(range(pl.nChoices)) for pl in self.players])
+        cost = {}
+        
+        for strategy in strategySpace:
+            curCost = np.zeros(len(self.players))
+            for j, rj in enumerate(strategy):
+                self.state[j] = np.zeros((self.players[j].nChoices,))
+                self.state[j][rj] = 1.0
+            
+            if not self.checkStrategies(self.state):
+                if includeNonFeasible:
+                    curCost = np.infty + curCost
+                else:
+                    continue
+            else:
+                for j in range(len(self.players)):
+                    curCost[j] = self.waitTime(j)
+            
+            cost[strategy] = tuple(curCost.tolist())
+        
+        return cost
+    
+    def correlatedEquilbrium(self):
+        cost = self.calcDiscreteCosts(includeNonFeasible=True)
+        
+        # replace infty with very large number
+        M = 1000.0
+        for s in cost:
+            if cost[s][0] == np.infty:
+                cost[s] = tuple([M]*len(self.players))
+        
+        p = {}
+        systemLoad = 0
+        
+        prob = pulp.LpProblem("correlatedEq", sense=pulp.const.LpMinimize)
+        totalProb = 0
+        for s in cost:
+            p[s] = pulp.LpVariable(f'p_{s}',lowBound=0,upBound=1)
+            totalProb += p[s]
+            systemLoad += p[s] * sum(cost[s])
+            
+        prob += systemLoad, "average wait time of players"
+        prob += totalProb == 1
+        
+        def edit_tuple(tup, ind, x):
+            return tup[:ind] + (x,) + tup[ind+1:]
+        
+        
+        playerChoices = [list(range(pl.nChoices)) for pl in self.players]
+        for i, curPlayer in enumerate(self.players):
+            for si, sip in itertools.product(range(curPlayer.nChoices), repeat=2):
+                if si == sip : continue
+                playerChoices[i] = [si]
                 
+                coordCost = 0
+                ignoreCost = 0
+                
+                for s in itertools.product(*playerChoices):
+                    s1 = edit_tuple(s, i, sip)
+                    coordCost += cost[s][i]*p[s]
+                    ignoreCost += cost[s1][i]*p[s]
+                    
+                print(f"player {i}\ncoordCost {coordCost}\nignoreCost={ignoreCost}\n")
+                prob += coordCost <= ignoreCost, f"player {i} -- {si} better than {sip}"
+            playerChoices[i] = list(range(curPlayer.nChoices))
+        
+        prob.solve()
+        
+        print("Status:", pulp.LpStatus[prob.status])
+
+        for v in prob.variables():
+            print(v.name, "=", v.varValue)
+    
+    def cooperativeOptimal(self):
+        return min(map(sum, self.calcDiscreteCosts().values()))
+    
+    

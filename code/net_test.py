@@ -5,10 +5,28 @@ r1 = Route([0.3, 0, 0], [
     [0, 0.4, 0.6],
     [0, 0, 0]
 ])
+r2 = Route([0.3, 0, 0], [
+    [0, 0.3, 0.6],
+    [0, 0.4, 0.6],
+    [0.1, 0, 0]
+])
 
-p1 = Player([r1], 0)
-p2 = Player([r1], 1)
+r3 = Route([0.1, 0.1, 0.1], [
+    [0, 0.3, 0.6],
+    [0, 0.4, 0.6],
+    [0.1, 0, 0]
+])
 
-network = Network([2.0, 2.0, 2.0], [p1, p2])
+r4 = Route([0.1, 0.1, 0.1], [
+    [0.3, 0.6, 0],
+    [0, 0, 1.0],
+    [0.0, 0, 0]
+])
+
+
+p0 = Player([r1, r2], 0)
+p1 = Player([r3, r4], 1)
+
+network = Network([2.0, 2.0, 2.0], [p0, p1])
 print(network.waitTime(0))
-network.bestResponse(0)
+print(network.calcPureNashEquilibrium())

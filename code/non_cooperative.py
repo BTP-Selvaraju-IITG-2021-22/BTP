@@ -17,10 +17,7 @@ class Route:
 class Player:
     counter = 0
     
-    def __init__(self, routes : List[Route], id=None):
-        
-        self.id = id
-        Player.counter += 1
+    def __init__(self, routes : List[Route]):
         
         gammas = [x.gamma for x in routes]
         Rs = [x.R for x in routes]

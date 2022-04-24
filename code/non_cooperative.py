@@ -263,11 +263,12 @@ class Network:
         prob.solve()
         
         print("Status:", pulp.LpStatus[prob.status])
-
-        for v in prob.variables():
+        
+        for v in p:
             print(v.name, "=", v.varValue)
     
-    def cooperativeOptimal(self):
+    def discreteCooperativeOptimal(self):
         return min(map(sum, self.calcDiscreteCosts().values()))
     
-    
+    # def continuousCooperativeOptimal(self):
+        

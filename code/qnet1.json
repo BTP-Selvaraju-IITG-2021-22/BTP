@@ -1,0 +1,27 @@
+{
+    "Nodes" : [
+        {
+            "label" : "Q1",
+            "srvRate" : 1.0
+        },
+        {
+            "label" : "Q2",
+            "srvRate" : 1.0
+        },
+        {
+            "label" : "Q3",
+            "srvRate" : 1.0
+        }
+    ],
+    "Customer" : [
+        {
+            "label" : "C1",
+            "arrival" : [0.3, 0, 0],
+            "routing" : [
+                [0, 1.0, 0],
+                [0, 0.4, 0.6],
+                [0, 0, 0]
+            ]
+        }
+    ]
+}

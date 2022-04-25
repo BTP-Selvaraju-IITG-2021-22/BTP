@@ -1,0 +1,41 @@
+digraph {
+	node [fixedsize=true shape=circle width=2.0]
+	subgraph cluster_p0_0 {
+		label="Player 0, routeChoice 0"
+		color=blue
+		p0_0_0 [label="μ=20.0
+p0=1.00"]
+		p0_0_1 [label="μ=10.0
+γ=4
+p0=1.00"]
+	}
+	subgraph cluster_p0_1 {
+		label="Player 0, routeChoice 1"
+		color=blue
+		p0_1_0 [label="μ=20.0
+γ=4
+p0=1.00"]
+		p0_1_1 [label="μ=10.0
+p0=1.00"]
+	}
+	subgraph cluster_p1_0 {
+		label="Player 1, routeChoice 0"
+		color=blue
+		p1_0_0 [label="μ=20.0
+p0=1.00"]
+		p1_0_1 [label="μ=10.0
+γ=3
+p0=1.00"]
+	}
+	subgraph cluster_p1_1 {
+		label="Player 1, routeChoice 1"
+		color=blue
+		p1_1_0 [label="μ=20.0
+γ=3
+p0=0.60"]
+		p1_1_1 [label="μ=10.0
+p0=1.00"]
+		p1_1_0 -> p1_1_0 [label=0.1]
+		p1_1_0 -> p1_1_1 [label=0.3]
+	}
+}

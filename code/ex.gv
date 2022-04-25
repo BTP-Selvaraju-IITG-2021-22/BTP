@@ -1,0 +1,10 @@
+digraph G {
+	size=30
+	node [fixedsize=true shape=circle width=2]
+	0 [pos="3,6!"]
+	1 [pos="6,9!"]
+	2 [pos="10.5,9!"]
+	3 [pos="6,3!"]
+	4 [pos="10.5,3!"]
+	5 [pos="13.5,6!"]
+}

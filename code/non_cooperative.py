@@ -7,6 +7,7 @@ import scipy.optimize
 import itertools
 import pulp
 import math
+import graphviz
 
 class Route:
     def __init__(self,gamma, R) -> None:
@@ -29,7 +30,7 @@ class Player:
         
         for gamma, R in zip(gammas, Rs):
             assert(len(gamma) == len(R) == self.reqNodes)
-            assert(sum(gamma) == self.totalArrival)
+            assert(abs(sum(gamma) - self.totalArrival) < 1e-4)
             
         self.routingChoices = routes
 
@@ -160,7 +161,7 @@ class Network:
             p0 = p0/np.sum(p0)
             Ap0 = A_ineq.dot(p0)
             satisfies = np.all(lb_ineq <= Ap0) and np.all(Ap0 <= ub_ineq)
-            # print("checking p0 = ", p0, "... satisfies?" , satisfies)
+            print("checking p0 = ", p0, "... satisfies?" , satisfies)
         
         optRes = scipy.optimize.minimize(costFn, p0, constraints=linearConstraints, bounds=bounds)
         return optRes.x
@@ -300,3 +301,31 @@ class Network:
                 EW[t][j] = sum(loss[t][j][r]*p[t][j][r] for r in range(self.players[j].nChoices))
         
         return EW
+    
+    def visualize(self) -> graphviz.Digraph:
+        g = graphviz.Digraph()
+        g.attr('node', shape='circle', fixedsize='true', width='2.0')
+        
+        for k, player in enumerate(self.players):
+            for r, route in enumerate(player.routingChoices):
+                name = f'p{k}_{r}'
+                print(name)
+                with g.subgraph(name='cluster_'+name) as c:
+                    c.attr(label=f'Player {k}, routeChoice {r}')
+                    c.attr(color='blue')
+
+                    for i in range(len(route.gamma)):
+                        label = f'μ={self.serviceRates[i]}'
+                        if route.gamma[i] > 0:
+                            label += f'\nγ={route.gamma[i]}'
+                        if sum(route.R[i]) < 1:
+                            label += f'\np0={1-sum(route.R[i]):.2f}'
+                        c.node(f'{name}_{i}', label=label)
+
+                    for i in range(len(route.gamma)):
+                        for j in range(len(route.gamma)):
+                            if route.R[i][j] > 0:
+                                c.edge(f'{name}_{i}', f'{name}_{j}', label=f'{route.R[i][j]}')
+        print("node position: ")
+        
+        return g

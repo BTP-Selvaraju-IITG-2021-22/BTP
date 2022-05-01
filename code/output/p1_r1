@@ -1,0 +1,33 @@
+digraph G {
+	size=30
+	node [fixedsize=true shape=circle width=2]
+	0 [label="node0
+μ=57.06
+γ=3.45" pos="3,6!"]
+	1 [label="node1
+μ=57.99" pos="6,9!"]
+	2 [label="node2
+μ=51.80" pos="10.5,9!"]
+	3 [label="node3
+μ=50.17
+γ=4.55" pos="6,3!"]
+	4 [label="node4
+μ=59.38
+p0=0.34" pos="10.5,3!"]
+	5 [label="node5
+μ=50.45
+p0=0.54" pos="13.5,6!"]
+	0 -> 1 [label=0.13]
+	0 -> 3 [label=0.87]
+	1 -> 2 [label=0.45]
+	1 -> 4 [label=0.40]
+	1 -> 5 [label=0.15]
+	2 -> 1 [label=0.06]
+	2 -> 3 [label=0.29]
+	2 -> 4 [label=0.31]
+	2 -> 5 [label=0.35]
+	3 -> 4 [label=1.00]
+	4 -> 3 [label=0.26]
+	4 -> 5 [label=0.40]
+	5 -> 5 [label=0.46]
+}

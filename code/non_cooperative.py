@@ -192,7 +192,11 @@ class Network:
             else:
                 print("something new")
         
-        return self.state
+        socialCost = 0
+        for i in range(self.nPlayers):
+            socialCost += self.waitTime(i)
+        
+        return self.state, socialCost
     
     def calcDiscreteCosts(self, includeNonFeasible=False):
         strategySpace = itertools.product(*[list(range(pl.nChoices)) for pl in self.players])
@@ -270,7 +274,7 @@ class Network:
             v = p[s]
             res[s] = v.varValue
 
-        return res
+        return res, prob.objective.value()
     
     def discreteCooperativeOptimal(self):
         return min(map(sum, self.calcDiscreteCosts().values()))

@@ -1,10 +1,36 @@
 digraph G {
 	size=30
 	node [fixedsize=true shape=circle width=2]
-	0 [pos="3,6!"]
-	1 [pos="6,9!"]
-	2 [pos="10.5,9!"]
-	3 [pos="6,3!"]
-	4 [pos="10.5,3!"]
-	5 [pos="13.5,6!"]
+	0 [label="node0
+μ=200.87
+γ=3.07" pos="3,6!"]
+	1 [label="node1
+μ=207.30" pos="6,9!"]
+	2 [label="node2
+μ=204.92" pos="10.5,9!"]
+	3 [label="node3
+μ=208.84
+γ=1.93" pos="6,3!"]
+	4 [label="node4
+μ=206.61
+p0=0.37" pos="10.5,3!"]
+	5 [label="node5
+μ=202.61
+p0=0.43" pos="13.5,6!"]
+	0 -> 1 [label=0.53]
+	0 -> 3 [label=0.47]
+	1 -> 2 [label=0.46]
+	1 -> 4 [label=0.22]
+	1 -> 5 [label=0.32]
+	2 -> 1 [label=0.05]
+	2 -> 3 [label=0.33]
+	2 -> 4 [label=0.31]
+	2 -> 5 [label=0.30]
+	3 -> 0 [label=0.22]
+	3 -> 2 [label=0.38]
+	3 -> 4 [label=0.41]
+	4 -> 2 [label=0.23]
+	4 -> 3 [label=0.02]
+	4 -> 5 [label=0.37]
+	5 -> 5 [label=0.57]
 }

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from random import random
 import graphviz
 
+"""
 baseRoute = [
     [0, 1, 0, 1, 0, 0],
     [0, 0, 1, 0, 1, 1],
@@ -54,8 +55,33 @@ nChoices = 2
 players = []
 for i in range(len(arrv)):
     players.append(Player([genRandomRoute(arrv[i]) for _ in range(nChoices)]))
+"""
 
-network = Network(serviceRates, players)
+
+
+# network = Network(serviceRates, players)
+
+r1 = Route([1., 0., 0.], [
+    [0., 0., 0.],
+    [0., 0., 0.],
+    [0., 0., 0.],
+])
+
+r2 = Route([0., 1., 0.], [
+    [0., 0., 0.],
+    [0., 0., 0.],
+    [0., 0., 0.],
+])
+
+r3 = Route([0., 0., 1.], [
+    [0., 0., 0.],
+    [0., 0., 0.],
+    [0., 0., 0.],
+])
+
+network = Network([1.2, 1.20001, 2.1], [Player([r1,r3]), Player([r2,r3])])
+
+print("discrete costs", network.calcDiscreteCosts())
 
 # network = Network([20., 10.0], [p0, p1])
 # print(network.waitTime(0))
@@ -64,16 +90,20 @@ print("pure Nash social cost = ", pureSoc)
 with open('output/pure.txt', 'w') as f:
     f.write(str(pureNash)+ '\n')
     f.write(str(pureSoc))
+    print(pureNash)
+    print(pureSoc)
 
 corr, corrSoc = network.correlatedEquilbrium()
 print("correlated social Cost = " ,corrSoc)
 with open('output/corr.txt', 'w') as f:
     f.write(str(corr))
     f.write(str(corrSoc))
+    print(corr)
+    print(corrSoc)
 
 # print(network.discreteCooperativeOptimal())
 
-mwew = network.multiplicativeWeights(eta=0.3, nSteps=500)
+mwew = network.multiplicativeWeights(eta=0.3, nSteps=50)
 for i in range(len(mwew[0])):
     plt.plot([x[i] for x in mwew], '.-', label=f'Player {i}')
 plt.xlabel('Iterations')
@@ -88,7 +118,7 @@ plt.ylabel('Social Cost')
 plt.savefig('output/mw_social.png')
 
 
-
+"""
 pli = 0 # player
 rti = 0 # route 
 ndpos = [(1,2),(2,3),(3.5,3),(2,1),(3.5,1),(4.5,2)]
@@ -128,3 +158,4 @@ for pli in range(network.nPlayers):
 # g.node('3',pos='2,1!')
 # g.node('4',pos='3,1!')
 # g.node('5',pos='4,2!')
+"""

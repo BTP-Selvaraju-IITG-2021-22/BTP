@@ -3,8 +3,8 @@ import json
 import graphviz
 from non_cooperative import Route
 
-service = [20., 10.]
-route = Route([3, 0], [
+service = [1.2, 1.2, 2.1]
+route = Route([1, 0], [
     [0.1, 0.3],
     [0, 0],
 ])

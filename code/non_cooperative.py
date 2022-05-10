@@ -113,7 +113,6 @@ class Network:
             for k in range(self.nPlayers):
                 for r in range(self.players[k].nChoices):
                     arrv += strategies[k][r]*self.C[k][r][i]
-            print(f"arrv[{i}] =  {arrv} (service = {self.serviceRates[i]}")
             if not (arrv < self.serviceRates[i]): return False
         
         return True
@@ -161,7 +160,6 @@ class Network:
             p0 = p0/np.sum(p0)
             Ap0 = A_ineq.dot(p0)
             satisfies = np.all(lb_ineq <= Ap0) and np.all(Ap0 <= ub_ineq)
-            print("checking p0 = ", p0, "... satisfies?" , satisfies)
         
         optRes = scipy.optimize.minimize(costFn, p0, constraints=linearConstraints, bounds=bounds)
         return optRes.x
@@ -177,20 +175,14 @@ class Network:
         maxIter = 50
         eps = 0.001
         for iter in range(maxIter):
-            print(f"\nNash Iteration {iter}")
             anyNew = False
-            print("current Strats : ", self.state)
             for j in range(self.nPlayers):
                 oldStrat = self.state[j]
                 self.state[j] = self.bestResponse(j)
-                print(f"new strat for player {j}", self.state[j])
                 if np.max(np.abs(oldStrat - self.state[j])) > eps:
                     anyNew = True
             if not anyNew:
-                print(f"Nothing new...")
                 break
-            else:
-                print("something new")
         
         socialCost = 0
         for i in range(self.nPlayers):
@@ -261,13 +253,10 @@ class Network:
                     coordCost += cost[s][i]*p[s]
                     ignoreCost += cost[s1][i]*p[s]
                     
-                print(f"player {i}\ncoordCost {coordCost}\nignoreCost={ignoreCost}\n")
                 prob += coordCost <= ignoreCost, f"player {i} -- {si} better than {sip}"
             playerChoices[i] = list(range(curPlayer.nChoices))
         
         prob.solve()
-        
-        print("Status:", pulp.LpStatus[prob.status])
         
         res = {}
         for s in p:
@@ -313,7 +302,6 @@ class Network:
         for k, player in enumerate(self.players):
             for r, route in enumerate(player.routingChoices):
                 name = f'p{k}_{r}'
-                print(name)
                 with g.subgraph(name='cluster_'+name) as c:
                     c.attr(label=f'Player {k}, routeChoice {r}')
                     c.attr(color='blue')
@@ -330,6 +318,5 @@ class Network:
                         for j in range(len(route.gamma)):
                             if route.R[i][j] > 0:
                                 c.edge(f'{name}_{i}', f'{name}_{j}', label=f'{route.R[i][j]}')
-        print("node position: ")
         
         return g

@@ -15,6 +15,7 @@ baseRoute = [
 baseGamma = [1, 0, 0, 1, 0, 0]
 outBase =   [0, 0, 0, 0, 1, 1]
 
+# Generates a random route using baseRoute
 def genRandomRoute(totArrv):
     N = len(baseRoute)
     route = [[0]*N for _ in range(N)]
@@ -29,11 +30,10 @@ def genRandomRoute(totArrv):
     norm = sum(gammas)
     gammas = [totArrv*x/norm for x in gammas]
     
-    print(sum(gammas))
-    # print(route)
-    # print('\n\n')
     return Route(gammas, route)
 
+
+# Prints route in latex
 def tostr_route(route):
     res = '\\begin{pmatrix}'
     for i in route.R:
@@ -57,8 +57,6 @@ for i in range(len(arrv)):
 
 network = Network(serviceRates, players)
 
-# network = Network([20., 10.0], [p0, p1])
-# print(network.waitTime(0))
 pureNash, pureSoc = network.calcPureNashEquilibrium()
 print("pure Nash social cost = ", pureSoc)
 with open('output/pure.txt', 'w') as f:
@@ -87,6 +85,9 @@ plt.xlabel('Iterations')
 plt.ylabel('Social Cost')
 plt.savefig('output/mw_social.png')
 
+
+#################################################################
+# Generate graph for the Jackson Network
 
 
 pli = 0 # player

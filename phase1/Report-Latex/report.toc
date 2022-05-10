@@ -1,0 +1,18 @@
+\contentsline {chapter}{List of Figures}{v}%
+\contentsline {chapter}{List of Tables}{vi}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}%
+\contentsline {section}{\numberline {1.1}Queueing Theory}{1}%
+\contentsline {section}{\numberline {1.2}Game Theory}{3}%
+\contentsline {subsection}{\numberline {1.2.1}Subsection name}{3}%
+\contentsline {chapter}{\numberline {2}Introduction}{5}%
+\contentsline {section}{\numberline {2.1}Queueing Theory}{5}%
+\contentsline {section}{\numberline {2.2}Game Theory}{7}%
+\contentsline {subsection}{\numberline {2.2.1}Subsection name}{7}%
+\contentsline {chapter}{\numberline {3}Algorithms for Nash Equilibria of Queueing games}{9}%
+\contentsline {section}{\numberline {3.1}Section-1 Name}{9}%
+\contentsline {section}{\numberline {3.2}Section-2 Name}{9}%
+\contentsline {subsection}{\numberline {3.2.1}Subsection name}{10}%
+\contentsline {chapter}{\numberline {4}Future Work}{11}%
+\contentsline {section}{\numberline {4.1}Section-1 Name}{11}%
+\contentsline {section}{\numberline {4.2}Section-2 Name}{11}%
+\contentsline {subsection}{\numberline {4.2.1}Subsection name}{11}%

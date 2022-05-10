@@ -1,0 +1,163 @@
+\chapter{Queueing Network Games} \label{chap2}
+\section{Queueing Games}
+
+We consider a game on a network of nodes with players $\mathcal{N} = \{1,2,\ldots,N\}$ and nodes $\mathcal{C} = \{1,2,\ldots,C\}$. Every node $i \in \mathcal{C}$ is a FIFO queue with an exponential service rate $\mu_i$. Each player $j \in \mathcal{N}$ has its customers arriving with a Poisson process with rate $\lambda^{(j)}$. Every player $j \in \mathcal{N}$ is given a set of routes $R^{(j)}$, and must assign each of its customer to a route $r\in R^{(j)}$. The strategy of player $j\in \mathcal{N}$ is given by vector $p^{(j)}$, where $p^{(j)}_r$ denotes the probability that the player assigns its customers to route $r \in R^{(j)}$.
+
+We consider each node $i \in \mathcal{C}$ to be a multi-type $M/M/1$ queue with customer types $\mathcal{T} = \{1, 2, \ldots , T\}$. For node $i\in \mathcal{C}$, the service time is exponential with rate $\mu_i$ and the arrival rate of customer of type $t\in\mathcal{T}$ is $\lambda_i(t)$.
+
+The node $i\in \mathcal{C}$ is stable if and only if $\rho_i := \sum_{t\in\mathcal{T}}\rho_i(t) < 1$ where $\rho_i(t) = \lambda_i(t)/\mu_i$ for $t\in\mathcal{T}$.
+
+\begin{example}
+An example of a queueing game is given in Figure \ref{fig:2P3N_example}.
+Here
+$\mathcal{N} = \{1,2\}$, $\mathcal{R}^{(1)} = \{(1,4),(2),(2,3,4)\}$ and
+$\mathcal{R}^{(2)} = \{(3),(1)\}$
+\end{example}
+
+
+
+\section{Congestion Games}
+\begin{definition} A Congestion Game is defined by tuple
+\[
+\Gamma = \left(\mathcal{N},\,\mathcal{R},\,(\Sigma_i)_{i\in\mathcal{N}},\, (d_r)_{r\in\mathcal{R}} \right)\] where
+\begin{itemize}
+    \item $\mathcal{N} = \{1,...,n\}$ is the set of players
+    \item $\mathcal{R}$ is the set of resources
+    \item $\Sigma_j \subset 2^{\mathcal{R}}$ is the strategy space of player $j$
+    \item $d_r : \mathbb{N} \rightarrow \mathbb{R}^{+}$ is the delay function for resource $r$.
+\end{itemize}
+\end{definition}
+
+\noindent
+The cost of player $j$ in state $S \in \Sigma_1\times...\times\Sigma_n$,
+is $ c_j(S) = \sum_{r\in S_j}d_r(n_r(S))$ where $n_r = |\{j\in\mathcal{N}:r\in S_j\}|$.
+
+\begin{definition}
+A Weighted Congestion Game is defined by a tuple $\Gamma = \left(\mathcal{N},\,\mathcal{R},\,(\Sigma_i)_{i\in\mathcal{N}},\, (d_r)_{r\in\mathcal{R}},\, (w_i)_{i\in\mathcal{N}} \right)$. Here
+\begin{itemize}
+    \item $\mathcal{N},\mathcal{R},\Sigma_i$ have same definition as congestion game
+    \item $d_r:\mathbb{R}^+\rightarrow\mathbb{R}^+$ is a non-decreasing function giving the delay for using resource $r$
+    \item $w_i$ is the weight of player $i$
+\end{itemize}
+
+\noindent
+The cost of player $j$ in state $S \in \Sigma_1\times...\times\Sigma_n$,
+is $ c_j(S) = \sum_{r\in S_j}d_r(w_r)$ where $w_r := \sum_{\{i\in\mathcal{N} : r \in S_i\}} w_i$ is the sum of weights of players using resource $r$.
+\end{definition}
+
+
+The following theorem shows that a Nash equilibrium exists for any congestion game and also shows that the algorithm in Chapter 3 converges to a Nash Equilibrium.
+
+\begin{definition}
+A step $S$ to $S'=(S_i'~,~S_{-i})$ is called an improvement step if $c_i(S)>c_i(S')$.
+\end{definition}
+
+\begin{theorem}[Rosenthal 1973]
+For congestion games, every sequence of improvement steps is finite.
+\end{theorem}
+
+For proving this, we need to look at the Rosenthal's potential function, which for every state $S$ is defined to be
+$$\Phi(S) = \sum_{r\in\mathcal{R}}\sum_{k=1}^{n_r(S)}d_r(k)$$
+
+\begin{lemma}
+Let $S$ be any state and $S_i$ be an alternative strategy for player $i$.
+Then
+$$\Phi(S_i',S_{-i}) - \Phi(S) = c_i(S_i',S_{-i})-c_i(S)$$
+\end{lemma}
+\begin{proof}
+From definition of Rosenthal's Potential function
+
+\begin{align}
+\Phi(S_i',S_{-i}) - \Phi(S) &= \sum_{r\in\mathcal{R}}\sum_{k=1}^{n_r(S_i',S_{-i})}d_r(k) -\sum_{r\in\mathcal{R}}\sum_{k=1}^{n_r(S)}d_r(k) \nonumber \\
+  &= \sum_{r\in\mathcal{R}} \left( \sum_{k=1}^{n_r(S_i',S_{-i})}d_r(k) - \sum_{k=1}^{n_r(S)} d_r(k) \right) \nonumber \\
+  &= \sum_{r\in\mathcal{R}} \Delta_r \label{eqn:rosen_pot}
+\end{align}
+
+ where $\Delta_r := \sum_{k=1}^{n_r(S_i',S_{-i})}d_r(k) - \sum_{k=1}^{n_r(S)} d_r(k)$.
+ \begin{itemize}
+     \item Case 1: $r\in S_i$ and $r \in S_i'$ then $\Delta_r = 0$
+     \item Case 2: $r\notin S_i$ and $r \notin S_i'$ then $\Delta_r = 0$
+     \item Case 3: $r\notin S_i$ and $r \in S_i'$ then
+     $n_r(S_i',S_{-i})=n_r(S)+1$ so $\Delta_r=d_r(n_r(S_i',S_{-i}))$
+     \item Case 4: $r\in S_i$ and $r\notin S_i'$ then 
+     $n_r(S_i',S_{-i})=n_r(S)-1$ so $\Delta_r=-d_r(n_r(S))$
+ \end{itemize}
+
+And we've
+\begin{align}
+    c_i(S_i',S_i)-c_i(S) &= \sum_{r\in S_i'}d_r(n_r(S_i',S_{-i})) - \sum_{r\in S_i}d_r(n_r(S)) \nonumber \\
+    &= \sum_{r\in S_i' \; r\notin S_i} d_r(n_r(S_i',S_{-i})) - \sum_{r\notin S_i' \; r\in S_i}d_r(n_r(S)) \nonumber \\
+    &= \sum_{r\in\mathcal{R}} \Delta_r \label{eqn:rosen_cost}
+\end{align}
+
+From \ref{eqn:rosen_cost} and \ref{eqn:rosen_pot}, we got the desired result.
+
+\end{proof}
+
+
+\begin{proof}
+We prove Rosenthal's Theorem by contradiction. Assume that there exists
+an infinite sequence of improvement steps $S^{(1)}, S^{(2)},\ldots $.
+By the previous Lemma and definition of improvement step
+\begin{equation}
+\label{eqn:imp_step}
+\Phi(S^{(i)}) > \Phi(S^{(j)}) \quad \forall \; i,j\in\mathbb{N}, \; i < j
+\end{equation}
+As there are finitely many states, there must exist $i<j$ such that
+$S^{(i)}=S^{(j)}$. Hence $\Phi(S^{(i)})=\Phi(S^{(j)})$ which contradicts
+the \ref{eqn:imp_step}.
+\end{proof}
+
+
+\begin{theorem}
+There exists a pure-strategy Nash equilibrium for $N$-player games on a network of single server queues when all customers have equal arrival rates i.e. $\lambda^{j}=\lambda$ for all $j\in\mathcal{N}$.
+\end{theorem}
+\begin{proof}
+We prove this by showing that this is equivalent to a congestion game.
+Since congestion games have a pure strategy Nash equilibrium, then so does this sub-class of queueing game.
+\end{proof}
+
+\section{N-player game in discrete strategy space}
+
+For players with equal arrival rates, we can define a delay function at each node $i$.
+
+$$d_i(x) = \frac{1}{\mu - x\lambda}$$
+
+So the payoff/mean sojourn time for player $j$ in discrete-strategy profile $p$ is given by 
+
+$$f^{(j)}(p) = \sum_{i=1}^{C}\frac{\mathbb{1}_{i\in r_j(p)}}{\mu_i - x_i(p)\lambda}
+ = \sum_{i\in r_i(p)} d_i(x_i(p))$$
+
+ 
+where $x_i(p) = \sum_{j\in\mathcal{N}} \mathbb{1}_{i\in r_j(p)}$ and $r^{(j)}(p)$ is the route chosen by player $j$ in discrete-strategy $p$.
+
+Clearly, $d_i(x)$ is a monotone increasing function in $x$. So this is a congestion game.
+
+% \section{Game Theory}
+% \begin{definition}\label{abc2}
+% Some definition....
+% \end{definition}
+
+% \begin{remark}
+% Some remark.......
+% \end{remark}
+
+% \subsection{Subsection name}
+
+% \begin{theorem}
+% Some theorem.......
+% \end{theorem}
+
+% \begin{proof}
+% Proof is as follows.... By Definition \ref{abc1}
+% \end{proof}
+
+
+% \begin{figure}[h]
+
+% [The figure will be displayed here.]
+
+% \caption{The correlation coefficient as a function of $\rho$}
+% \end{figure}
+
+

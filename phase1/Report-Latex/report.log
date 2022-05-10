@@ -1,0 +1,468 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.24)  4 NOV 2021 11:36
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks14
+\thm@bodyfont=\toks15
+\thm@headfont=\toks16
+\thm@notefont=\toks17
+\thm@headpunct=\toks18
+\thm@preskip=\skip49
+\thm@postskip=\skip50
+\thm@headsep=\skip51
+\dth@everypar=\toks19
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks20
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+\epsfxsize=\dimen137
+\epsfysize=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode, (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyrecat.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyidioms.tex)
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state,
+\X@c=\dimen139
+\Y@c=\dimen140
+\U@c=\dimen141
+\D@c=\dimen142
+\L@c=\dimen143
+\R@c=\dimen144
+\Edge@c=\toks22
+\X@p=\dimen145
+\Y@p=\dimen146
+\U@p=\dimen147
+\D@p=\dimen148
+\L@p=\dimen149
+\R@p=\dimen150
+\Edge@p=\toks23
+\X@origin=\dimen151
+\Y@origin=\dimen152
+\X@xbase=\dimen153
+\Y@xbase=\dimen154
+\X@ybase=\dimen155
+\Y@ybase=\dimen156
+\X@min=\dimen157
+\Y@min=\dimen158
+\X@max=\dimen159
+\Y@max=\dimen160
+\lastobjectbox@=\box45
+\zerodotbox@=\box46
+\almostz@=\dimen161
+ direction,
+\d@X=\dimen162
+\d@Y=\dimen163
+\K@=\count176
+\KK@=\count177
+\Direction=\count178
+\K@dXdY=\dimen164
+\K@dYdX=\dimen165
+\xyread@=\read2
+\xywrite@=\write3
+\csp@=\count179
+\quotPTK@=\dimen166
+
+utility macros; pictures: \xy, positions,
+\swaptoks@@=\toks24
+\connectobjectbox@@=\box47
+ objects,
+\styletoks@=\toks25
+ decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve,
+\crv@cnt@=\count180
+\crvpts@=\toks26
+\splinebox@=\box48
+\splineval@=\dimen167
+\splinedepth@=\dimen168
+\splinetol@=\dimen169
+\splinelength@=\dimen170
+ circles,
+\L@=\dimen171
+ loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10
+\xylinethick@=\dimen172
+ loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14
+\Row=\count181
+\Col=\count182
+\queue@=\toks27
+\queue@@=\toks28
+\qcount@=\count183
+\qcount@@=\count184
+\matrixsize@=\count185
+ loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+\c@theorem=\count186
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count187
+\l__pdf_internal_box=\box49
+)
+No file report.aux.
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count188
+\scratchdimen=\dimen173
+\scratchbox=\box50
+\nofMPsegments=\count189
+\nofMParguments=\count190
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count191
+\MPscratchDim=\dimen174
+\MPnumerator=\count192
+\makeMPintoPDFobject=\count193
+\everyMPtoPDFconversion=\toks30
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package epstopdf Info: Source file: <iitglogo.eps>
+(epstopdf)                    date: 2021-11-04 11:33:03
+(epstopdf)                    size: 228362 bytes
+(epstopdf)             Output file: <iitglogo-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=iitglogo-eps-converted-to.
+pdf iitglogo.eps>
+(epstopdf)             \includegraphics on input line 68.
+runsystem(repstopdf --outfile=iitglogo-eps-converted-to.pdf iitglogo.eps)...exe
+cuted safely (allowed).
+
+Package epstopdf Info: Result file: <iitglogo-eps-converted-to.pdf>.
+
+
+! Package pdftex.def Error: File `iitglogo-eps-converted-to.pdf' not found: usi
+ng draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 \includegraphics[height=2.5cm]{iitglogo}
+                                             
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.68 \includegraphics[height=2.5cm]{iitglogo}
+                                             
+? q
+OK, entering \batchmode...
+
+Overfull \hbox (17.78316pt too wide) in paragraph at lines 74--74
+ [][] 
+ []
+
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--109
+
+ []
+
+ [2
+
+] [3
+
+]
+No file report.toc.
+\tf@toc=\write4
+\openout4 = `report.toc'.
+
+ [4
+
+
+]
+No file report.lof.
+\tf@lof=\write5
+\openout5 = `report.lof'.
+
+ [5
+
+
+]
+No file report.lot.
+\tf@lot=\write6
+\openout6 = `report.lot'.
+
+ [6
+
+]
+Chapter 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 165
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 165
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16
+5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [1
+
+] [2]
+
+LaTeX Warning: Reference `eqn1' on page 3 undefined on input line 206.
+
+
+LaTeX Warning: Citation `laan' on page 3 undefined on input line 217.
+
+
+LaTeX Warning: Reference `abc1' on page 3 undefined on input line 237.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+ [3] [4]
+Chapter 2.
+ [5
+
+] [6]
+
+LaTeX Warning: Reference `eqn1' on page 7 undefined on input line 309.
+
+
+LaTeX Warning: Citation `laan' on page 7 undefined on input line 320.
+
+
+LaTeX Warning: Reference `abc1' on page 7 undefined on input line 340.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+ [7] [8]
+Chapter 3.
+ [9
+
+] [10]
+Chapter 4.
+ [11
+
+]
+
+LaTeX Warning: Citation `laan' undefined on input line 449.
+
+
+LaTeX Warning: Citation `rqhassin' undefined on input line 449.
+
+
+LaTeX Warning: Citation `stidham' undefined on input line 449.
+
+
+LaTeX Warning: Citation `gross' undefined on input line 449.
+
+
+LaTeX Warning: Citation `osborne' undefined on input line 449.
+
+
+LaTeX Warning: Citation `ferreira' undefined on input line 449.
+
+No file report.bbl.
+ [12] (./report.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4701 strings out of 483107
+ 61577 string characters out of 5964630
+ 321874 words of memory out of 5000000
+ 19623 multiletter control sequences out of 15000+600000
+ 541913 words of font info for 64 fonts, out of 8000000 for 9000
+ 59 hyphenation exceptions out of 8191
+ 38i,6n,31p,441b,239s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmtt12.pfb>
+Output written on report.pdf (18 pages, 118058 bytes).
+PDF statistics:
+ 98 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
